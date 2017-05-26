@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/imagea"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/indexa"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagea"
+        android:gravity="right"
+        android:textSize="18dp"
+        android:layout_marginTop="-35dp"
+        android:id="@+id/tvnewCase"
+        android:textColor="#000"
+        android:fontFamily="Ca"
+        android:paddingRight="25dp"
+        android:layout_marginRight="15dp"
+        android:text="New Case"/>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="370dp"
+        android:background="#35A0CCC0"
+        android:layout_margin="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/usernameWrapper"
+            android:layout_width="300dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/courtname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Court Name"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/CourtName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usernameWrapper"
+            android:layout_alignLeft="@+id/usernameWrapper"
+            android:layout_alignStart="@+id/usernameWrapper">
+
+            <EditText
+                android:id="@+id/etcasenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Case Number"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ClientName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CourtName"
+            android:layout_alignLeft="@+id/usernameWrapper"
+            android:layout_alignStart="@+id/usernameWrapper">
+
+            <EditText
+                android:id="@+id/etClientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Client name"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Contactnumber"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ClientName"
+            android:layout_alignLeft="@+id/usernameWrapper"
+            android:layout_alignStart="@+id/usernameWrapper">
+
+            <EditText
+                android:id="@+id/etContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Contact number"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Case Type :  "
+            android:id="@+id/casetype"
+            android:textColor="#000"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="22dp"
+            android:layout_below="@+id/Contactnumber"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/radiogroup"
+            android:layout_below="@+id/Contactnumber"
+            android:layout_toRightOf="@+id/casetype"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Civil"
+                android:id="@+id/civiltype"
+                android:padding="5dp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Criminal"
+                android:padding="5dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/criminaltype"/>
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:text="Submit"
+            android:textSize="15dp"
+            android:id="@+id/submit"
+            android:layout_centerHorizontal="true"
+            android:background="@color/cardview_dark_background"
+            android:layout_below="@+id/casetype"
+            android:layout_height="60dp" />
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

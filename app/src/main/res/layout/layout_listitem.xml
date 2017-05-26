@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="25dp"
+    android:layout_marginBottom="15dp"
+    app:cardElevation="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123456"
+            android:id="@+id/casenumber"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="right"
+            android:textSize="18dp"
+            android:layout_marginRight="25dp"
+            android:typeface="monospace"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aashish"
+            android:layout_below="@id/casenumber"
+            android:id="@+id/username"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:typeface="monospace"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Number"
+            android:layout_below="@id/username"
+            android:id="@+id/contact"
+            android:textColor="#000"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:id="@+id/casetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/courtname"
+            android:layout_marginLeft="25dp"
+            android:text="Case Type"
+            android:textColor="#000"
+            android:typeface="monospace" />
+
+
+        <TextView
+            android:id="@+id/courtname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Court Name"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>
