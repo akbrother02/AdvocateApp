@@ -81,25 +81,31 @@ public class ViewAllActivity extends AppCompatActivity {
         @Override
         public View getView(int i, View convertView, ViewGroup viewGroup) {
             UserRecords contactListItems = contactList.get(i);
-
+            Holder holder;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.layout_listitem, null);
-
+                holder = new Holder();
+                holder.Name = (TextView) convertView.findViewById(R.id.username);
+                holder.Casetype=(TextView)convertView.findViewById(R.id.casetype);
+                holder.Contact=(TextView) convertView.findViewById(R.id.contact);
+                holder.CourtName=(TextView) convertView.findViewById(R.id.courtname);
+                holder.Casenumber=(TextView)convertView.findViewById(R.id.casenumber);
+                convertView.setTag(holder);
+            } else{
+                holder = (Holder) convertView.getTag();
             }
-            TextView Name = (TextView) convertView.findViewById(R.id.username);
-            Name.setText(contactListItems.getName());
-            TextView Casetype=(TextView)convertView.findViewById(R.id.casetype);
-            Casetype.setText(contactListItems.getCasetype());
-            TextView Contact=(TextView) convertView.findViewById(R.id.contact);
-            Contact.setText(contactListItems.getContactnumber());
-            TextView CourtName=(TextView) convertView.findViewById(R.id.courtname);
-            CourtName.setText(contactListItems.getCourtname());
-            TextView Casenumber=(TextView)convertView.findViewById(R.id.casenumber);
-            Casenumber.setText(contactListItems.getCasenumber());
+            holder.Name.setText(contactListItems.getName());
+            holder.Casetype.setText(contactListItems.getCasetype());
+            holder.Contact.setText(contactListItems.getContactnumber());
+            holder.CourtName.setText(contactListItems.getCourtname());
+            holder.Casenumber.setText(contactListItems.getCasenumber());
             return convertView;
         }
+    }
+    private class Holder{
+        TextView Name, Casetype, Casenumber, CourtName, Contact;
     }
 
 

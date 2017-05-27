@@ -11,7 +11,11 @@
         android:src="@drawable/indexb"/>
     <ListView
         android:id="@+id/listview"
+        android:padding="10dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:layout_width="match_parent"
         android:layout_below="@+id/imageview"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
     </RelativeLayout>
