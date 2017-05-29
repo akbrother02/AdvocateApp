@@ -6,7 +6,7 @@ package loadingdata.ashish.advocateapp;
 
 public class UserRecords {
     String name;
-    String casenumber;
+    String Address;
 
     public String getName() {
         return name;
@@ -16,20 +16,20 @@ public class UserRecords {
         this.name = name;
     }
 
-    public String getCasenumber() {
-        return casenumber;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setCasenumber(String casenumber) {
-        this.casenumber = casenumber;
+    public void setAddress(String address) {
+        this.Address = address;
     }
 
-    public String getCourtname() {
-        return courtname;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setCourtname(String courtname) {
-        this.courtname = courtname;
+    public void setEmail(String email) {
+        this.Email = email;
     }
 
     public String getContactnumber() {
@@ -48,7 +48,7 @@ public class UserRecords {
         this.casetype = casetype;
     }
 
-    String courtname;
+    String Email;
     String contactnumber;
     String casetype;
 }

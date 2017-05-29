@@ -1,12 +1,14 @@
 package loadingdata.ashish.advocateapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,11 +37,9 @@ public class ViewAllActivity extends AppCompatActivity {
                 do {
                     UserRecords contactListItems = new UserRecords();
 
-                    contactListItems.setCasenumber(c1.getString(c1.getColumnIndex("Caseno")));
+                    contactListItems.setAddress(c1.getString(c1.getColumnIndex("Address")));
                     contactListItems.setContactnumber(c1.getString(c1.getColumnIndex("Name")));
                     contactListItems.setName(c1.getString(c1.getColumnIndex("Contact")));
-                    contactListItems.setCasetype(c1.getString(c1.getColumnIndex("CaseType")));
-                    contactListItems.setCourtname(c1.getString(c1.getColumnIndex("Court")));
                     contactList.add(contactListItems);
 
                 } while (c1.moveToNext());
@@ -49,6 +49,17 @@ public class ViewAllActivity extends AppCompatActivity {
         CustomAdapter contactListAdapter = new CustomAdapter(
                 ViewAllActivity.this, contactList);
         listView.setAdapter(contactListAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+
+
+
+            }
+        });
     }
 
 
@@ -88,24 +99,20 @@ public class ViewAllActivity extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.layout_listitem, null);
                 holder = new Holder();
                 holder.Name = (TextView) convertView.findViewById(R.id.username);
-                holder.Casetype=(TextView)convertView.findViewById(R.id.casetype);
+                holder.Address=(TextView)convertView.findViewById(R.id.address);
                 holder.Contact=(TextView) convertView.findViewById(R.id.contact);
-                holder.CourtName=(TextView) convertView.findViewById(R.id.courtname);
-                holder.Casenumber=(TextView)convertView.findViewById(R.id.casenumber);
                 convertView.setTag(holder);
             } else{
                 holder = (Holder) convertView.getTag();
             }
             holder.Name.setText(contactListItems.getName());
-            holder.Casetype.setText(contactListItems.getCasetype());
+            holder.Address.setText(contactListItems.getAddress());
             holder.Contact.setText(contactListItems.getContactnumber());
-            holder.CourtName.setText(contactListItems.getCourtname());
-            holder.Casenumber.setText(contactListItems.getCasenumber());
             return convertView;
         }
     }
     private class Holder{
-        TextView Name, Casetype, Casenumber, CourtName, Contact;
+        TextView Name, Address,Contact;
     }
 
 

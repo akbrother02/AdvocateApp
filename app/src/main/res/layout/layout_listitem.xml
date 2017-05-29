@@ -11,26 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="123456"
-            android:id="@+id/casenumber"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:gravity="right"
-            android:textSize="18dp"
-            android:layout_marginRight="25dp"
-            android:typeface="monospace"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="25dp"/>
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Aashish"
-            android:layout_below="@id/casenumber"
+            android:layout_marginTop="15dp"
             android:id="@+id/username"
             android:textStyle="bold"
             android:textColor="#000"
@@ -49,27 +36,16 @@
             android:layout_marginLeft="25dp"/>
 
         <TextView
-            android:id="@+id/casetype"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/courtname"
-            android:layout_marginLeft="25dp"
-            android:text="Case Type"
-            android:layout_marginBottom="25dp"
-            android:textColor="#000"
-            android:typeface="monospace" />
-
-
-        <TextView
-            android:id="@+id/courtname"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/contact"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="15dp"
-            android:text="Court Name"
+
+            android:text="Address"
             android:textColor="#000"
             android:textSize="18dp"
+            android:layout_marginBottom="20dp"
             android:typeface="sans" />
     </RelativeLayout>
 

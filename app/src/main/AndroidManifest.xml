@@ -21,7 +21,8 @@
             android:label="@string/title_activity_index"
             android:theme="@style/AppTheme" />
         <activity android:name=".NewCasesActivity" />
-        <activity android:name=".ViewAllActivity"></activity>
+        <activity android:name=".ViewAllActivity" />
+        <activity android:name=".UserProfileDescription"></activity>
     </application>
 
 </manifest>

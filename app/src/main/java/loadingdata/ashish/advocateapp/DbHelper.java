@@ -14,11 +14,11 @@ import android.util.Log;
 public class DbHelper extends SQLiteOpenHelper {
     public static  String Database_Name = "Advocate.db";
     public static  String Table_Name = "Caserecord";
-    public static String Col1 = "Caseno";
-    public static String Col2 = "Name";
+    public static String Col1 = "Name";
+    public static String Col2 = "Address";
     public static String Col3 = "Contact";
-    public static String Col4 = "CaseType";
-    public static String Col5="Court";
+    public static String Col4 = "Email";
+    public static String Col5="CaseType";
 
     public DbHelper(Context context) {
         super(context, Database_Name, null, 1);
@@ -36,14 +36,14 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertData(String caseno, String name, String contact, String casetype, String court ) {
+    public boolean insertData(String name, String address, String contact, String email, String casetype ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Col1, caseno);
-        contentValues.put(Col2, name);
+        contentValues.put(Col1, name);
+        contentValues.put(Col2, address);
         contentValues.put(Col3, contact);
-        contentValues.put(Col4, casetype);
-        contentValues.put(Col5, court);
+        contentValues.put(Col4, email);
+        contentValues.put(Col5, casetype);
         long result = db.insert(Table_Name, null, contentValues);
         if (result == -1)
             return false;

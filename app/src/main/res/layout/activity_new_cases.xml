@@ -31,8 +31,7 @@
     android:layout_width="match_parent"
     android:layout_height="370dp"
         android:background="#35A0CCC0"
-        android:layout_margin="22dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imagea"
         android:layout_centerHorizontal="true">
 
         <android.support.design.widget.TextInputLayout
@@ -44,16 +43,16 @@
             android:layout_centerHorizontal="true">
 
             <EditText
-                android:id="@+id/courtname"
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Court Name"/>
+                android:hint="Client Name"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/CourtName"
+            android:id="@+id/Address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/usernameWrapper"
@@ -61,37 +60,20 @@
             android:layout_alignStart="@+id/usernameWrapper">
 
             <EditText
-                android:id="@+id/etcasenumber"
+                android:id="@+id/etAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Case Number"/>
+                android:hint="Address"/>
 
         </android.support.design.widget.TextInputLayout>
 
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/ClientName"
+            android:id="@+id/Contact"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/CourtName"
-            android:layout_alignLeft="@+id/usernameWrapper"
-            android:layout_alignStart="@+id/usernameWrapper">
-
-            <EditText
-                android:id="@+id/etClientName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Client name"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/Contactnumber"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ClientName"
+            android:layout_below="@+id/Address"
             android:layout_alignLeft="@+id/usernameWrapper"
             android:layout_alignStart="@+id/usernameWrapper">
 
@@ -100,7 +82,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Contact number"/>
+                android:hint="Contact"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Contact"
+            android:layout_alignLeft="@+id/usernameWrapper"
+            android:layout_alignStart="@+id/usernameWrapper">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -112,14 +111,14 @@
             android:textColor="#000"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="22dp"
-            android:layout_below="@+id/Contactnumber"/>
+            android:layout_below="@+id/Email"/>
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:id="@+id/radiogroup"
-            android:layout_below="@+id/Contactnumber"
+            android:layout_below="@+id/Email"
             android:layout_toRightOf="@+id/casetype"
             android:layout_height="wrap_content">
 

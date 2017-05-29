@@ -1,5 +1,6 @@
 package loadingdata.ashish.advocateapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
@@ -12,22 +13,22 @@ import android.widget.Toast;
 
 public class NewCasesActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText Court, Casenumebr, Name, Contact;
+    EditText Address, Email, Name, Contact;
     RadioButton casetype;
     RadioGroup rg;
     Button Submit;
     DbHelper mydb;
-    boolean iscaseNumber = false, Isname, isContactnumber, isCourtName;
+    boolean isEmail = false, Isname, isContactnumber, isCourtName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_cases);
         mydb = new DbHelper(this);
-        Court = (EditText) findViewById(R.id.courtname);
+        Address = (EditText) findViewById(R.id.etAddress);
         rg = (RadioGroup) findViewById(R.id.radiogroup);
-        Casenumebr = (EditText) findViewById(R.id.etcasenumber);
-        Name = (EditText) findViewById(R.id.etClientName);
+        Email = (EditText) findViewById(R.id.etEmail);
+        Name = (EditText) findViewById(R.id.username);
         Contact = (EditText) findViewById(R.id.etContact);
         Submit = (Button) findViewById(R.id.submit);
         Submit.setOnClickListener(this);
@@ -44,7 +45,7 @@ public class NewCasesActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void validate() {
-        String stname, stcourtname, stcasenumber, stContact, stradiotext;
+        String stname, staddress, stemail, stContact, stradiotext;
 
         stname = Name.getText().toString().replaceAll("\\s+", " ");
         if (stname.equals("") || stname.equals(null)) {
@@ -57,15 +58,15 @@ public class NewCasesActivity extends AppCompatActivity implements View.OnClickL
             Name.setError("Enter a valid userName");
         }
 
-        stcourtname = Court.getText().toString().replaceAll("\\s+", " ");
-        if (stcourtname.equals("") || stcourtname.equals(null)) {
-            Court.requestFocus();
-            Court.setError("Field Mandatory");
-        } else if (stcourtname.matches("^[\\p{L} .'-]+$")) {
+        staddress = Address.getText().toString().replaceAll("\\s+", " ");
+        if (staddress.equals("") || staddress.equals(null)) {
+            Address.requestFocus();
+            Address.setError("Field Mandatory");
+        } else if (staddress.matches("^[\\p{L} .'-]+$")) {
             isCourtName = true;
         } else {
-            Court.requestFocus();
-            Court.setError("Enter teh valid Court Name");
+            Address.requestFocus();
+            Address.setError("Enter teh valid Address");
         }
 
         stContact = Contact.getText().toString();
@@ -79,18 +80,20 @@ public class NewCasesActivity extends AppCompatActivity implements View.OnClickL
             Contact.setError("Enter a valid number");
         }
 
-        stcasenumber = Casenumebr.getText().toString();
-        if (stcasenumber.equals("") || stcasenumber.equals(null)) {
-            Casenumebr.requestFocus();
-            Casenumebr.setError("Field Mandatory");
-        } else if (Patterns.PHONE.matcher(stcasenumber).matches() && stcasenumber.length() == 8) {
-            iscaseNumber = true;
-        } else {
-            Casenumebr.requestFocus();
-            Casenumebr.setError("Enter a valid number");
-        }
+//        stcasenumber = Casenumebr.getText().toString();
+//        if (stcasenumber.equals("") || stcasenumber.equals(null)) {
+//            Casenumebr.requestFocus();
+//            Casenumebr.setError("Field Mandatory");
+//        } else if (Patterns.PHONE.matcher(stcasenumber).matches() && stcasenumber.length() == 8) {
+//            iscaseNumber = true;
+//        } else {
+//            Casenumebr.requestFocus();
+//            Casenumebr.setError("Enter a valid number");
+//        }
 
-
+            stemail=Email.getText().toString();
+        if (Email.getText().toString().trim().equals("") || !Patterns.EMAIL_ADDRESS.matcher(Email.getText().toString()).matches())
+            isEmail=true;
         int selectedid = rg.getCheckedRadioButtonId();
         casetype = (RadioButton) findViewById(selectedid);
         stradiotext = casetype.getText().toString();
@@ -99,19 +102,21 @@ public class NewCasesActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-        if (Isname && iscaseNumber && isContactnumber && isCourtName)
-            SubmitToSql(stcasenumber, stname, stContact, stradiotext, stcourtname);
+        if (Isname && isEmail && isContactnumber && isCourtName)
+            SubmitToSql(stname,staddress,stContact,stemail,stradiotext);
     }
 
-    private void SubmitToSql(String stcasenumber, String stname, String stContact, String stradiotext, String stcourtname) {
-        boolean is_Inserted = mydb.insertData(stcasenumber, stname, stContact, stradiotext, stcourtname);
+    private void SubmitToSql(String stname, String staddress, String stContact, String stemail,String stradiotext) {
+        boolean is_Inserted = mydb.insertData(stname,staddress,stContact,stemail,stradiotext);
         if (is_Inserted == true) {
             Toast.makeText(this, "Data inserted", Toast.LENGTH_SHORT).show();
-            Court.setText("");
+            Address.setText("");
             Name.setText("");
             casetype.setChecked(false);
             Contact.setText("");
-            Casenumebr.setText("");
+            Email.setText("");
+            Intent profileDescription=new Intent(NewCasesActivity.this,UserProfileDescription.class);
+            startActivity(profileDescription);
         } else {
             Toast.makeText(this, "Data not inserted", Toast.LENGTH_SHORT).show();
         }
