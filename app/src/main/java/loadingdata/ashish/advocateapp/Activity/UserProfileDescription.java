@@ -1,11 +1,13 @@
-package loadingdata.ashish.advocateapp;
+package loadingdata.ashish.advocateapp.Activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import loadingdata.ashish.advocateapp.Adpater.PagerAdapter;
+import loadingdata.ashish.advocateapp.R;
 
 public class UserProfileDescription extends AppCompatActivity {
     TabLayout tabLayout;
@@ -44,5 +46,17 @@ public class UserProfileDescription extends AppCompatActivity {
 
             }
         });
+    }
+
+    public String getData()
+    {
+        Bundle bundle=getIntent().getExtras();
+        String name=bundle.getString("Name");
+        String Address=bundle.getString("Address");
+        String Contact=bundle.getString("Contact");
+        String Email=bundle.getString("Email");
+        String City=bundle.getString("City");
+
+        return name+"-" +Address+"-"+Contact+"-"+Email+"-"+City;
     }
 }

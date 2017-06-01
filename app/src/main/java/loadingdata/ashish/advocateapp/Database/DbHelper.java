@@ -1,4 +1,4 @@
-package loadingdata.ashish.advocateapp;
+package loadingdata.ashish.advocateapp.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,7 +13,12 @@ import android.util.Log;
 
 public class DbHelper extends SQLiteOpenHelper {
     public static  String Database_Name = "Advocate.db";
-    public static  String Table_Name = "Caserecord";
+    public static  String Table_Name = "Clientrecords";
+    public static String Table_Case="Caserecord";
+    public static String KEY_CaseName="CaseName";
+    public static String KEY_CaseNumber="CaseNumber";
+    public static String KEY_Status="status";
+
     public static String Col1 = "Name";
     public static String Col2 = "Address";
     public static String Col3 = "Contact";
@@ -27,7 +32,6 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("Create table "+Table_Name+" ( "+Col1 +" text,"+Col2+" text, "+Col3+" text, "+Col4+" text,"+Col5+" text );");
-        Log.d("Create query","Create table "+Table_Name+" ( "+Col1 +" text, "+Col2+" text, "+Col3+" text, "+Col4+" text,"+Col5+" text );");
     }
 
     @Override

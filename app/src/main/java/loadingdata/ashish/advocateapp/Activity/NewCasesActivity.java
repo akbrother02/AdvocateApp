@@ -1,4 +1,4 @@
-package loadingdata.ashish.advocateapp;
+package loadingdata.ashish.advocateapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import loadingdata.ashish.advocateapp.Database.DbHelper;
+import loadingdata.ashish.advocateapp.R;
 
 public class NewCasesActivity extends AppCompatActivity implements View.OnClickListener {
 

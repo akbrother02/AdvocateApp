@@ -1,4 +1,4 @@
-package loadingdata.ashish.advocateapp;
+package loadingdata.ashish.advocateapp.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import loadingdata.ashish.advocateapp.Database.DbHelper;
+import loadingdata.ashish.advocateapp.Model.UserRecords;
+import loadingdata.ashish.advocateapp.R;
 
 public class ViewAllActivity extends AppCompatActivity {
 
@@ -40,6 +44,8 @@ public class ViewAllActivity extends AppCompatActivity {
                     contactListItems.setAddress(c1.getString(c1.getColumnIndex("Address")));
                     contactListItems.setContactnumber(c1.getString(c1.getColumnIndex("Name")));
                     contactListItems.setName(c1.getString(c1.getColumnIndex("Contact")));
+                    contactListItems.setEmail(c1.getString(c1.getColumnIndex("Email")));
+                    contactListItems.setCasetype(c1.getString(c1.getColumnIndex("CaseType")));
                     contactList.add(contactListItems);
 
                 } while (c1.moveToNext());
@@ -52,8 +58,7 @@ public class ViewAllActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
+           
 
 
 
@@ -91,7 +96,7 @@ public class ViewAllActivity extends AppCompatActivity {
 
         @Override
         public View getView(int i, View convertView, ViewGroup viewGroup) {
-            UserRecords contactListItems = contactList.get(i);
+            final UserRecords contactListItems = contactList.get(i);
             Holder holder;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context
@@ -108,6 +113,21 @@ public class ViewAllActivity extends AppCompatActivity {
             holder.Name.setText(contactListItems.getName());
             holder.Address.setText(contactListItems.getAddress());
             holder.Contact.setText(contactListItems.getContactnumber());
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent=new Intent(ViewAllActivity.this,UserProfileDescription.class);
+                    intent.putExtra("Name",contactListItems.getName());
+                    intent.putExtra("Address",contactListItems.getAddress());
+                    intent.putExtra("Contact",contactListItems.getContactnumber());
+                    intent.putExtra("Email",contactListItems.getEmail());
+                    intent.putExtra("City",contactListItems.getCasetype());
+                    startActivity(intent);
+                    
+                }
+            });
             return convertView;
         }
     }

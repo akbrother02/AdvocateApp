@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IndexActivity"
+            android:name=".Activity.IndexActivity"
             android:label="@string/title_activity_index"
             android:theme="@style/AppTheme" />
-        <activity android:name=".NewCasesActivity" />
-        <activity android:name=".ViewAllActivity" />
-        <activity android:name=".UserProfileDescription"></activity>
+        <activity android:name=".Activity.NewCasesActivity" />
+        <activity android:name=".Activity.ViewAllActivity" />
+        <activity android:name=".Activity.UserProfileDescription"></activity>
     </application>
 
 </manifest>

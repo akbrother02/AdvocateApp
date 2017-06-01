@@ -1,4 +1,4 @@
-package loadingdata.ashish.advocateapp;
+package loadingdata.ashish.advocateapp.Model;
 
 /**
  * Created by Aashish on 5/26/2017.
