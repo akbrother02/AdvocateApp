@@ -11,6 +11,16 @@ public class CasesModel {
     String Casenumber;
     String registerdate;
     String Casetype;
+
+    public String getClientName() {
+        return ClientName;
+    }
+
+    public void setClientName(String clientName) {
+        ClientName = clientName;
+    }
+
+    String ClientName;
     String Casecharges;
     String Casefees;
     String OpponentName;

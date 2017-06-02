@@ -17,8 +17,18 @@ public class DbHelper extends SQLiteOpenHelper {
     public static String Table_Case="Caserecord";
     public static String KEY_CaseName="CaseName";
     public static String KEY_CaseNumber="CaseNumber";
-    public static String KEY_Status="status";
-
+    public static String KEY_Status="Status";
+    public static String Key_ClientName="ClientName";
+    public static String KEY_Register="RegisterDate";
+    public static String KEY_CaseType="CaseType";
+    public static String KEY_Fees="Fees";
+    public static String Key_OpponentName="OpponentName";
+    public static String Key_OpponentLawyer="OpponentLawyer";
+    public static String Key_OpponenetContact="OpponentContact";
+    public static String Key_JudgeName="JudgeName";
+    public static String Key_CourtName="CourtName";
+    public static String Key_CourtCity="CourtCity";
+    public static String Key_Remark="CaseRemark";
     public static String Col1 = "Name";
     public static String Col2 = "Address";
     public static String Col3 = "Contact";
@@ -32,11 +42,14 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("Create table "+Table_Name+" ( "+Col1 +" text,"+Col2+" text, "+Col3+" text, "+Col4+" text,"+Col5+" text );");
+        sqLiteDatabase.execSQL("Create table "+Table_Case+" ( "+Key_ClientName +" text,"+KEY_CaseName+" text, "+KEY_CaseNumber+ " text ,"+KEY_Status+ " text ,"+KEY_Register+ " text ,"+KEY_CaseType+ " text ,"+KEY_Fees+ " text ,"+Key_OpponentName+ " text ,"+Key_OpponentLawyer+ " text ,"+Key_OpponenetContact+ " text ,"+Key_JudgeName+ " text ,"+Key_CourtName+ " text ,"+Key_CourtCity+ " text ,"+Key_Remark+ " text );");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("Drop table if Exists"+Table_Name);
+        sqLiteDatabase.execSQL("Drop table if Exists "+Table_Name);
+        sqLiteDatabase.execSQL("Drop table if Exists "+Table_Case);
         onCreate(sqLiteDatabase);
     }
 
@@ -59,6 +72,12 @@ public class DbHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor cursor=db.rawQuery("Select * from "+Table_Name,null);
+        return cursor;
+    }
+    public Cursor getCaseDetails()
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.rawQuery("Select * from "+Table_Case,null);
         return cursor;
     }
 

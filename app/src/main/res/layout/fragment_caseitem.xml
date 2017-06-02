@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app:cardElevation="5dp"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="2sp"
+            android:layout_height="250dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CaseName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:id="@+id/casename"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CourtName"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/courtname"
+                    android:layout_below="@+id/casename"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clientname"
+                    android:text="Client name : "
+                    android:textColor="#0A0A0A"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@+id/courtname"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ashish Kumar"
+                android:id="@+id/tvusername"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/courtname"
+                android:layout_toRightOf="@+id/clientname"/>
+
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/tvusername"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginRight="15dp"
+                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:text="Reigister Date"
+                        android:background="@color/colorAccent"
+                        android:id="@+id/registerdate"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:textColor="#fff"
+                        android:text="Open"
+                        android:id="@+id/casestatus"
+
+                        android:gravity="center"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_below="@+id/registerdate"
+                        android:layout_height="30dp" />
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+</ScrollView>
